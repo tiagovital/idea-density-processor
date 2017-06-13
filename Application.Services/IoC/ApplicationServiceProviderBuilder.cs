@@ -14,7 +14,7 @@
 
         private static void RegisterDataServices(IServiceCollection serviceCollection)
         {
-            var repositoryServiceProvider = new DataServiceProviderBuilder();
+            var repositoryServiceProvider = new RepositoryServiceProviderBuilder();
             repositoryServiceProvider.RegisterServices(serviceCollection);
         }
 

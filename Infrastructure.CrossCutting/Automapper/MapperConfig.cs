@@ -3,7 +3,7 @@
     using System.Linq;
     using AutoMapper;
 
-    public static class MapperInitializer
+    public static class MapperConfig
     {
         public static void Initialize(IProfileLoader profileLoader)
         {

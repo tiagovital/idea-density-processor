@@ -8,7 +8,10 @@
     {
         public DocumentProfile()
         {
-            CreateMap<DocumentDto, Document>();
+            CreateMap<Document, DocumentDto>();
+            CreateMap<DocumentDto, Document>()
+                .ForMember(dest => dest.Sentences, opts => opts.Ignore())
+                .ForMember(dest => dest.Tags, opts => opts.Ignore());
         }
     }
 }

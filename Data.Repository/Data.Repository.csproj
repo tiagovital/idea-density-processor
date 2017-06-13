@@ -57,7 +57,7 @@
   <ItemGroup>
     <Compile Include="DocumentRepository..cs" />
     <Compile Include="IDocumentRepository.cs" />
-    <Compile Include="IoC\DataServiceProviderBuilder.cs" />
+    <Compile Include="IoC\RepositoryServiceProviderBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

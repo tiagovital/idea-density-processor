@@ -54,7 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Automapper\IProfileLoader.cs" />
-    <Compile Include="Automapper\MapperInitializer.cs" />
+    <Compile Include="Automapper\MapperConfig.cs" />
     <Compile Include="Automapper\StaticProfileLoader.cs" />
     <Compile Include="IoC\IServiceProviderBuilder.cs" />
     <Compile Include="Validation\Guard.cs" />

@@ -3,7 +3,7 @@
     using Infrastructure.CrossCutting.IoC;
     using Microsoft.Extensions.DependencyInjection;
 
-    public class DataServiceProviderBuilder : IServiceProviderBuilder
+    public class RepositoryServiceProviderBuilder : IServiceProviderBuilder
     {
         public void RegisterServices(IServiceCollection serviceCollection)
         {
