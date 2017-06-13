@@ -1,15 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Domain.Model;
 
 namespace Data.Repository
 {
     public interface IDocumentRepository
     {
-        Document Add(Document document);
+        Task Add(Document document);
 
-        IEnumerable<Document> Get(string[] tags);
+        Task<IEnumerable<Document>> Get(int page, int pageSize);
 
-        Document Get(Guid documentId);
+        Task<IEnumerable<Document>> Get(string[] tags);
+
+        Task<Document> Get(Guid documentId);
     }
 }

@@ -11,7 +11,7 @@
             {
                 var profilesTypes = profileLoader.GetProfiles().Select(i => i.GetType());
 
-                cfg.AddProfiles(profilesTypes)
+                cfg.AddProfiles(profilesTypes);
             });
 
             Mapper.AssertConfigurationIsValid();

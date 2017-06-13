@@ -5,20 +5,17 @@
 
     public class Document
     {
-        public Document(string text)
-        {
-            this.Id = Guid.NewGuid();
-            this.Sentences = new List<Sentence>();
-            this.Tags = new List<string>();
-        }
-
         public Guid Id { get; set; }
+
+        public string Name { get; set; }
 
         public string OriginalText { get; set; }
 
         public IList<Sentence> Sentences { get; set; }
 
         public DateTime CreatedAt { get; set; }
+
+        public string CreatedBy { get; set; }
 
         public IList<string> Tags { get; set; }
     }

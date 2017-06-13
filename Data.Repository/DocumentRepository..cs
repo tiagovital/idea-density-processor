@@ -1,25 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Threading.Tasks;
 using Domain.Model;
 
 namespace Data.Repository
 {
     public class DocumentRepository : IDocumentRepository
     {
-        public Document Add(Document document)
+        public async Task Add(Document document)
         {
-            return document;
+            throw new NotImplementedException();
         }
 
-        public Document Get(Guid documentId)
+        public async Task<Document> Get(Guid documentId)
         {
-            return null;
+            throw new NotImplementedException();
         }
 
-        public IEnumerable<Document> Get(string[] tags)
+        public async Task<IEnumerable<Document>> Get(string[] tags)
         {
-            return Enumerable.Empty<Document>();
+            throw new NotImplementedException();
+        }
+
+        public async Task<IEnumerable<Document>> Get(int page, int pageSize)
+        {
+            return await Task.FromResult(new List<Document>
+            {
+                new Document { CreatedAt = DateTime.Now, CreatedBy = "Tiago Vital", Name = "Document 1" },
+
+                new Document { CreatedAt = DateTime.Now, CreatedBy = "Tiago Vital", Name = "Document 2" },
+
+                new Document { CreatedAt = DateTime.Now, CreatedBy = "Tiago Vital", Name = "Document 3" },
+            });
         }
     }
 }

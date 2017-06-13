@@ -1,4 +1,4 @@
-﻿namespace Presentation.API.Controllers
+﻿namespace Presentation.API.Controllers.v1
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -8,7 +8,7 @@
     using Application.Services;
     using Models;
 
-    [RoutePrefix("documents")]
+    [RoutePrefix("v1/documents")]
     public class DocumentsController : ApiController
     {
         #region Private Members
