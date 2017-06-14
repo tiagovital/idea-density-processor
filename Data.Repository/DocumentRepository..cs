@@ -26,11 +26,11 @@ namespace Data.Repository
         {
             return await Task.FromResult(new List<Document>
             {
-                new Document { CreatedAt = DateTime.Now, CreatedBy = "Tiago Vital", Name = "Document 1" },
+                new Document { CreatedAt = DateTime.Now, Author = "Tiago Vital", Title = "Document 1" },
 
-                new Document { CreatedAt = DateTime.Now, CreatedBy = "Tiago Vital", Name = "Document 2" },
+                new Document { CreatedAt = DateTime.Now, Author = "Tiago Vital", Title = "Document 2" },
 
-                new Document { CreatedAt = DateTime.Now, CreatedBy = "Tiago Vital", Name = "Document 3" },
+                new Document { CreatedAt = DateTime.Now, Author = "Tiago Vital", Title = "Document 3" },
             });
         }
     }

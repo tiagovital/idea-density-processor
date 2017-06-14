@@ -277,8 +277,11 @@
     <Compile Include="IoC\DefaultDependencyResolver.cs" />
     <Compile Include="IoC\ServiceProviderBuilder.cs" />
     <Compile Include="IoC\ServiceProviderExtensions.cs" />
+    <Compile Include="MapperProfiles\DocumentsProfile.cs" />
     <Compile Include="Models\DocumentModel.cs" />
     <Compile Include="Models\SearchDocumentModel.cs" />
+    <Compile Include="Models\SentenceModel.cs" />
+    <Compile Include="Models\WordModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

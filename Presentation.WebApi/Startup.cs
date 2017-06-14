@@ -19,6 +19,7 @@ namespace Presentation.WebApi
 
             //Automapper
             var profilesLoader = new StaticProfileLoader(new Profile[] {
+                new Presentation.WebApi.MapperProfiles.DocumentsProfile(),
                 new Application.Services.MapperProfiles.DocumentProfile()
             });
 

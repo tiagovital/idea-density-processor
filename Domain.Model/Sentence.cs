@@ -10,5 +10,9 @@
         }
 
         public IList<Word> Words { get; set; }
+
+        public float LexicalVariety { get; set; }
+
+        public float IdeaDensity { get; set; }
     }
 }

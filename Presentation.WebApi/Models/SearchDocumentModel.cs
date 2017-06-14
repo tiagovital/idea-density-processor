@@ -6,8 +6,8 @@ namespace Presentation.API.Models
     {
         public string DocumentName { get; set; }
 
-        public DateTime DocumentCreatedAt { get; set; }
+        public string Author { get; set; }
 
-        public string DocumentCreatedBy { get; set; }
+        public DateTime DocumentCreatedAt { get; set; }
     }
 }

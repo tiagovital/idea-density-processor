@@ -36,9 +36,9 @@
 
             var model = documents.Select(d => new SearchDocumentModel
             {
-                DocumentName = d.Name,
+                DocumentName = d.Title,
                 DocumentCreatedAt = d.CreatedAt,
-                DocumentCreatedBy = d.CreatedBy
+                Author = d.Author
             });
 
             return this.Ok(model);

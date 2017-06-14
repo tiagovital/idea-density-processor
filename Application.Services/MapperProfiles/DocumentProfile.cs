@@ -1,5 +1,6 @@
 ﻿namespace Application.Services.MapperProfiles
 {
+    using System.Linq;
     using AutoMapper;
     using Domain.Model;
     using Dto;
@@ -8,10 +9,15 @@
     {
         public DocumentProfile()
         {
-            CreateMap<Document, DocumentDto>();
-            CreateMap<DocumentDto, Document>()
-                .ForMember(dest => dest.Sentences, opts => opts.Ignore())
-                .ForMember(dest => dest.Tags, opts => opts.Ignore());
+            this.CreateMap<Document, DocumentDto>();
+
+            this.CreateMap<Sentence, SentenceDto>();
+
+            this.CreateMap<Word, WordDto>()
+                .ForMember(dest => dest.Class, opts => opts.ResolveUsing(src => src.Class.ToString()))
+                .ForMember(dest => dest.AlternativeClasses,
+                        opts => opts.ResolveUsing(
+                            src => src.AlternativeClasses.Select(i => i.ToString())));
         }
     }
 }
