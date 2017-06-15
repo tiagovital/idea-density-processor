@@ -34,7 +34,7 @@ namespace Application.Services
 
             this.domainService.Validate(document);
 
-            await this.repository.AddOrUpdate(document);
+            await this.repository.AddOrUpdate(document).ConfigureAwait(false);
         }
     }
 }
