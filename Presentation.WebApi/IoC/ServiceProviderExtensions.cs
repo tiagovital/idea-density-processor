@@ -1,4 +1,4 @@
-﻿namespace Presentation.WebApi.IoC
+﻿namespace Presentation.API.IoC
 {
     using System;
     using System.Collections.Generic;

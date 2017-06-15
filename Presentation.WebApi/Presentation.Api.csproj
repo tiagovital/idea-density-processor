@@ -13,8 +13,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Presentation.WebApi</RootNamespace>
-    <AssemblyName>Presentation.WebApi</AssemblyName>
+    <RootNamespace>Presentation.Api</RootNamespace>
+    <AssemblyName>Presentation.Api</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -278,6 +278,7 @@
     <Compile Include="IoC\ServiceProviderBuilder.cs" />
     <Compile Include="IoC\ServiceProviderExtensions.cs" />
     <Compile Include="MapperProfiles\DocumentsProfile.cs" />
+    <Compile Include="Models\AddOrUpdateDocumentModel.cs" />
     <Compile Include="Models\DocumentModel.cs" />
     <Compile Include="Models\SearchDocumentModel.cs" />
     <Compile Include="Models\SentenceModel.cs" />

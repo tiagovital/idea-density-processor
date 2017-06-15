@@ -2,7 +2,7 @@
 using System.Web.Http.Dependencies;
 using Presentation.API.App_Start;
 
-namespace Presentation.WebApi
+namespace Presentation.API
 {
     public static class WebApiConfig
     {
@@ -12,6 +12,10 @@ namespace Presentation.WebApi
         {
             // Web API configuration and services
             config.DependencyResolver = resolver;
+
+            config.Formatters.Remove(config.Formatters.XmlFormatter);
+            config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Serialize;
+            config.Formatters.JsonFormatter.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.None;
 
             // Web API routes
             config.MapHttpAttributeRoutes();

@@ -78,6 +78,10 @@
       <Project>{06013DCA-C45B-468D-82A2-FD92DAD9C899}</Project>
       <Name>Domain.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Domain.Services\Domain.Services.csproj">
+      <Project>{A7130622-0E36-4E1C-9BDD-2C834763CBA9}</Project>
+      <Name>Domain.Services</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Infrastructure.CrossCutting\Infrastructure.CrossCutting.csproj">
       <Project>{D133F98B-D253-43F0-B83C-D648B17E5C4D}</Project>
       <Name>Infrastructure.CrossCutting</Name>

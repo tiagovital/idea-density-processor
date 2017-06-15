@@ -1,11 +1,15 @@
 ﻿namespace Presentation.API.Controllers.v1
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Net;
     using System.Threading.Tasks;
     using System.Web.Http;
     using System.Web.Http.Description;
+    using Application.Dto;
     using Application.Services;
+    using AutoMapper;
     using Models;
 
     [RoutePrefix("v1/documents")]
@@ -30,6 +34,7 @@
         #region Action Methods
 
         [HttpGet, Route(""), ResponseType(typeof(IEnumerable<SearchDocumentModel>))]
+        [Swashbuckle.Swagger.Annotations.SwaggerResponse(HttpStatusCode.OK)]
         public async Task<IHttpActionResult> GetAll(int page, int pageSize)
         {
             var documents = await this.service.GetAll(page, pageSize).ConfigureAwait(false);
@@ -42,6 +47,14 @@
             });
 
             return this.Ok(model);
+        }
+
+        [HttpPut, Route("{documentId}")]
+        public async Task AddOrUpdate([FromUri] Guid documentId, AddOrUpdateDocumentModel model)
+        {
+            var dto = Mapper.Map<DocumentDto>(model);
+
+            await this.service.Save(documentId, dto).ConfigureAwait(false);
         }
 
         #endregion Action Methods

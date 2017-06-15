@@ -4,7 +4,6 @@
     using Controllers.v1;
     using Infrastructure.CrossCutting.IoC;
     using Microsoft.Extensions.DependencyInjection;
-    using WebApi.IoC;
 
     public class ServiceProviderBuilder : IServiceProviderBuilder
     {

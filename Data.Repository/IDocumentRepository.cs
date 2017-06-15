@@ -7,7 +7,7 @@ namespace Data.Repository
 {
     public interface IDocumentRepository
     {
-        Task Add(Document document);
+        Task AddOrUpdate(Document document);
 
         Task<IEnumerable<Document>> Get(int page, int pageSize);
 

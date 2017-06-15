@@ -1,6 +1,6 @@
-﻿[assembly: Microsoft.Owin.OwinStartup(typeof(Presentation.WebApi.Startup))]
+﻿[assembly: Microsoft.Owin.OwinStartup(typeof(Presentation.API.Startup))]
 
-namespace Presentation.WebApi
+namespace Presentation.API
 {
     using System.Web.Http;
     using AutoMapper;
@@ -17,9 +17,12 @@ namespace Presentation.WebApi
             WebApiConfig.Register(config);
             appBuilder.UseWebApi(config);
 
+            //Swagger
+            SwaggerConfig.Register(config);
+
             //Automapper
             var profilesLoader = new StaticProfileLoader(new Profile[] {
-                new Presentation.WebApi.MapperProfiles.DocumentsProfile(),
+                new Presentation.API.MapperProfiles.DocumentsProfile(),
                 new Application.Services.MapperProfiles.DocumentProfile()
             });
 
