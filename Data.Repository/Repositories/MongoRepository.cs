@@ -10,7 +10,7 @@
 
     public class MongoRepository<TEntity> : IRepository<TEntity> where TEntity : IEntity
     {
-        private readonly IMongoClient client;
+        protected readonly IMongoClient client;
 
         public MongoRepository(IMongoClient client)
         {
@@ -84,7 +84,7 @@
                 .ConfigureAwait(false);
         }
 
-        public async Task Save(TEntity entity)
+        public async Task<TEntity> Save(TEntity entity)
         {
             var opts = new UpdateOptions { IsUpsert = true };
 
@@ -92,6 +92,8 @@
                 .GetDatabase("IDP")
                 .GetCollectionFor<TEntity>()
                 .ReplaceOneAsync(x => x.Id == entity.Id, entity, opts);
+
+            return entity;
         }
     }
 }

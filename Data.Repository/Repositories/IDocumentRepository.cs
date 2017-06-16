@@ -1,18 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Domain.Model;
-
-namespace Data.Repository
+﻿namespace Data.Repository.Repositories
 {
-    public interface IDocumentRepository
+    using Data.Repository.Specifications;
+    using Domain.Model;
+
+    public interface IDocumentRepository : IRepository<Document>
     {
-        Task AddOrUpdate(Document document);
-
-        Task<IEnumerable<Document>> Get(int page, int pageSize);
-
-        Task<IEnumerable<Document>> Get(string[] tags);
-
-        Task<Document> Get(Guid documentId);
     }
 }

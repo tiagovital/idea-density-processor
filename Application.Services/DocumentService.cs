@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Application.Dto;
 using AutoMapper;
-using Data.Repository;
+using Data.Repository.Repositories;
 using Domain.Model;
 using DomainServices = Domain.Services;
 
@@ -22,7 +22,7 @@ namespace Application.Services
 
         public async Task<IEnumerable<DocumentDto>> GetAll(int page, int pageSize)
         {
-            var documents = await this.repository.Get(page, pageSize).ConfigureAwait(false);
+            var documents = await this.repository.GetAll(page, pageSize).ConfigureAwait(false);
 
             return Mapper.Map<IEnumerable<DocumentDto>>(documents);
         }
@@ -34,7 +34,7 @@ namespace Application.Services
 
             this.domainService.Validate(document);
 
-            await this.repository.AddOrUpdate(document).ConfigureAwait(false);
+            await this.repository.Save(document).ConfigureAwait(false);
         }
     }
 }

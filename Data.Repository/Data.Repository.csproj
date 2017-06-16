@@ -68,11 +68,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Repositories\IDocumentRepository.cs" />
     <Compile Include="Specifications\AndSpecification.cs" />
     <Compile Include="Specifications\CompositeSpecification.cs" />
     <Compile Include="Repositories\DocumentRepository..cs" />
     <Compile Include="Extensions\IMongoDatabaseExtensions.cs" />
-    <Compile Include="Repositories\IDocumentRepository.cs" />
     <Compile Include="IoC\RepositoryServiceProviderBuilder.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Specifications\ISpecification.cs" />
