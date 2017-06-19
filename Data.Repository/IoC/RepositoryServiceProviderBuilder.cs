@@ -5,6 +5,7 @@
     using Infrastructure.CrossCutting.IoC;
     using Microsoft.Extensions.DependencyInjection;
     using MongoDB.Driver;
+    using Repositories;
 
     public class RepositoryServiceProviderBuilder : IServiceProviderBuilder
     {

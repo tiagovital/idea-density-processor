@@ -10,11 +10,11 @@
 
         Task<TEntity> Find(ISpecification<TEntity> specification);
 
-        Task<IEnumerable<TEntity>> GetAll();
+        Task<IEnumerable<TEntity>> GetAll(int page, int pageSize);
 
-        Task<IEnumerable<TEntity>> FindAll();
+        Task<IEnumerable<TEntity>> FindAll(ISpecification<TEntity> specification, int page, int pageSize);
 
-        Task<TEntity> Save();
+        Task<TEntity> Save(TEntity entity);
 
         Task Delete(Guid id);
     }

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{00BF0449-42E3-48FA-9BA0-6E15BE39C008}</ProjectGuid>
+    <ProjectGuid>{E6CFCE58-A594-4D1E-BB70-76CD5558F60A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Application.Services</RootNamespace>
-    <AssemblyName>Application.Services</AssemblyName>
+    <RootNamespace>Data.Gateway</RootNamespace>
+    <AssemblyName>Data.Gateway</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,8 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper, Version=6.0.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.6.0.2\lib\net45\AutoMapper.dll</HintPath>
+    <Reference Include="HtmlAgilityPack, Version=1.4.9.5, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.9.5\lib\Net45\HtmlAgilityPack.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Extensions.DependencyInjection, Version=1.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
@@ -44,6 +44,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Numerics" />
@@ -59,33 +60,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DocumentClassificationService\DocumentClassificationService.cs" />
-    <Compile Include="DocumentService\DocumentService.cs" />
-    <Compile Include="DocumentService\IDocumentService.cs" />
-    <Compile Include="IoC\ApplicationServiceProviderBuilder.cs" />
-    <Compile Include="MapperProfiles\DocumentProfile.cs" />
+    <Compile Include="Iltec\Adapters\IIltecAdapter.cs" />
+    <Compile Include="Iltec\Adapters\IIltecAdapterFactory.cs" />
+    <Compile Include="Iltec\Adapters\IltecAdapterFactory.cs" />
+    <Compile Include="Iltec\Adapters\WordClassFactory.cs" />
+    <Compile Include="Iltec\IIltecClient.cs" />
+    <Compile Include="Iltec\IltecClient.cs" />
+    <Compile Include="Iltec\IltecGateway.cs" />
+    <Compile Include="Iltec\Dtos\IltecResponse.cs" />
+    <Compile Include="Iltec\Adapters\IltecSingleTermPageAdapter.cs" />
+    <Compile Include="Iltec\Adapters\IltectMultipleTermsPageAdapter.cs" />
+    <Compile Include="IoC\GatewayServiceProviderBuilder.cs" />
+    <Compile Include="IWordClassificatorGateway.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Application.Dto\Application.Dto.csproj">
-      <Project>{415165AE-8D95-462F-8121-AACA4945C6AA}</Project>
-      <Name>Application.Dto</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Data.Gateway\Data.Gateway.csproj">
-      <Project>{E6CFCE58-A594-4D1E-BB70-76CD5558F60A}</Project>
-      <Name>Data.Gateway</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Data.Repository\Data.Repository.csproj">
-      <Project>{61749C33-C3BE-42A6-BE69-C51C2DFC5A0D}</Project>
-      <Name>Data.Repository</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Domain.Model\Domain.Model.csproj">
       <Project>{06013DCA-C45B-468D-82A2-FD92DAD9C899}</Project>
       <Name>Domain.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Domain.Services\Domain.Services.csproj">
-      <Project>{A7130622-0E36-4E1C-9BDD-2C834763CBA9}</Project>
-      <Name>Domain.Services</Name>
     </ProjectReference>
     <ProjectReference Include="..\Infrastructure.CrossCutting\Infrastructure.CrossCutting.csproj">
       <Project>{D133F98B-D253-43F0-B83C-D648B17E5C4D}</Project>
@@ -93,10 +85,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

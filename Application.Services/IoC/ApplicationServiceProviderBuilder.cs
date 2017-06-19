@@ -18,6 +18,9 @@
         {
             var repositoryServiceProvider = new RepositoryServiceProviderBuilder();
             repositoryServiceProvider.RegisterServices(serviceCollection);
+
+            var gatewayServiceProvider = new GatewayServiceProviderBuilder();
+            gatewayServiceProvider.RegisterServices(serviceCollection);
         }
 
         private void RegisterDomainServices(IServiceCollection serviceCollection)

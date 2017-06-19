@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
 
-    public class Document
+    public class Document : IEntity
     {
         public Document()
         {
