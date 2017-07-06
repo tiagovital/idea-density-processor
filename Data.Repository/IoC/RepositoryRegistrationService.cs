@@ -7,11 +7,12 @@
     using MongoDB.Driver;
     using Repositories;
 
-    public class RepositoryServiceProviderBuilder : IServiceProviderBuilder
+    public class RepositoryRegistrationService : IRegistrationService
     {
         public void RegisterServices(IServiceCollection serviceCollection)
         {
             serviceCollection.AddTransient<IDocumentRepository, DocumentRepository>();
+            serviceCollection.AddTransient<IWordClassificationRepository, WordClassificationRepository>();
             serviceCollection.AddTransient<IMongoClient, MongoClient>(CreateMongoClient);
         }
 

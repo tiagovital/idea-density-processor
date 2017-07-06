@@ -24,6 +24,7 @@
                             src => src.AlternativeClasses.Select(i => i.ToString())));
 
             this.CreateMap<WordDto, Word>()
+                .ForMember(dest => dest.Id, opts => opts.ResolveUsing(src => src.Value))
                 .ForMember(dest => dest.Class, opts => opts.Ignore())
                 .ForMember(dest => dest.AlternativeClasses, opts => opts.Ignore());
         }

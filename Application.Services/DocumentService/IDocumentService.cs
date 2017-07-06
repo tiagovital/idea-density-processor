@@ -1,13 +1,12 @@
 ﻿namespace Application.Services
 {
-    using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using Application.Dto;
+    using Dto;
 
     public interface IDocumentService
     {
-        Task Save(Guid documentId, DocumentDto documentDto);
+        Task Save(string documentId, AddOrUpdateDocumentDto dto);
 
         Task<IEnumerable<DocumentDto>> GetAll(int page, int pageSize);
     }

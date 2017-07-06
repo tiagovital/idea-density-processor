@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Application.Dto
 {
@@ -9,5 +10,9 @@ namespace Application.Dto
         public string Class { get; set; }
 
         public IEnumerable<string> AlternativeClasses { get; set; }
+
+        public DateTime CreatedAt { get; set; }
+
+        public string CreatedBy { get; set; }
     }
 }

@@ -5,5 +5,7 @@
     public interface IIltecClient
     {
         Task<string> Search(string word);
+
+        Task<string> SearchLemma(string htmlResult);
     }
 }

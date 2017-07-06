@@ -1,12 +1,11 @@
 ﻿namespace Data.Repository.Specifications
 {
-    using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
     public interface IRepository<TEntity>
     {
-        Task<TEntity> Get(Guid id);
+        Task<TEntity> Get(string id);
 
         Task<TEntity> Find(ISpecification<TEntity> specification);
 
@@ -16,6 +15,6 @@
 
         Task<TEntity> Save(TEntity entity);
 
-        Task Delete(Guid id);
+        Task Delete(string id);
     }
 }

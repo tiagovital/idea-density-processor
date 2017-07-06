@@ -6,7 +6,6 @@
     using Application.Dto;
     using Application.Services;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using Models;
     using Moq;
     using Ploeh.AutoFixture;
 
@@ -23,14 +22,16 @@
 
             var fixture = new Fixture();
 
-            var model = fixture.Create<AddOrUpdateDocumentModel>();
-            var documentId = Guid.NewGuid();
+            var model = fixture.Create<AddOrUpdateDocumentDto>();
+            var documentId = Guid.NewGuid().ToString();
 
             // Act
             await target.AddOrUpdate(documentId, model);
 
             // Assert
-            service.Verify(i => i.Save(documentId, It.IsAny<DocumentDto>()));
+            service.Verify(i => i.Save(documentId, model));
         }
+
+        //public async Task
     }
 }

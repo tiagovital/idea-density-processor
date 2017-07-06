@@ -2,6 +2,6 @@
 {
     public interface IIltecAdapter
     {
-        IltecResponse Adapt(string htmlResult);
+        IltecResponse Adapt(HtmlAgilityPack.HtmlDocument htmlDocument);
     }
 }

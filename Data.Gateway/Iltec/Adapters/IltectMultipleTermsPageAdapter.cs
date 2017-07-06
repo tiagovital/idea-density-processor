@@ -2,17 +2,15 @@
 {
     using System.Linq;
     using Adapters;
+    using HtmlAgilityPack;
 
     /// <summary>
     /// Adapter for pages such as
     /// </summary>
     internal class IltectMultipleTermsPageAdapter : IIltecAdapter
     {
-        public IltecResponse Adapt(string html)
+        public IltecResponse Adapt(HtmlDocument htmlDoc)
         {
-            var htmlDoc = new HtmlAgilityPack.HtmlDocument();
-            htmlDoc.LoadHtml(html);
-
             var wordClasses = htmlDoc.DocumentNode
                                 .Descendants("td")
                                 .Where(t => t.Attributes.Any(att => att.Name == "label"))

@@ -4,7 +4,7 @@
 
     public interface IEntity
     {
-        Guid Id { get; set; }
+        string Id { get; set; }
 
         DateTime CreatedAt { get; set; }
 

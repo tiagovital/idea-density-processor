@@ -1,6 +1,5 @@
 ﻿namespace Presentation.API.Controllers.v1
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Net;
@@ -9,7 +8,6 @@
     using System.Web.Http.Description;
     using Application.Dto;
     using Application.Services;
-    using AutoMapper;
     using Models;
 
     [RoutePrefix("v1/documents")]
@@ -50,10 +48,8 @@
         }
 
         [HttpPut, Route("{documentId}")]
-        public async Task AddOrUpdate([FromUri] Guid documentId, AddOrUpdateDocumentModel model)
+        public async Task AddOrUpdate([FromUri] string documentId, AddOrUpdateDocumentDto dto)
         {
-            var dto = Mapper.Map<DocumentDto>(model);
-
             await this.service.Save(documentId, dto).ConfigureAwait(false);
         }
 

@@ -3,9 +3,9 @@
     using System.Linq;
     using AutoMapper;
 
-    public static class MapperConfig
+    public static class MapperInitializer
     {
-        public static void Initialize(IProfileLoader profileLoader)
+        public static void Initialize(IProfileLoadingStrategy profileLoader)
         {
             Mapper.Initialize(cfg =>
             {

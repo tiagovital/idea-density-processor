@@ -1,26 +1,29 @@
 ﻿namespace Application.Services
 {
-    using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
     using Application.Dto;
     using AutoMapper;
-    using Data.Gateway;
     using Data.Repository.Repositories;
     using Domain.Model;
+    using Events;
+    using Infrastructure.CrossCutting.EventAggregator;
     using DomainServices = Domain.Services;
 
     public class DocumentService : IDocumentService
     {
         private readonly DomainServices.IDocumentService domainService;
-        private readonly IWordClassificatorGateway gateway;
+        private readonly IEventAggregator eventAggregator;
         private readonly IDocumentRepository repository;
 
-        public DocumentService(IDocumentRepository repository, DomainServices.IDocumentService domainService, IWordClassificatorGateway gateway)
+        public DocumentService(
+            IDocumentRepository repository,
+            DomainServices.IDocumentService domainService,
+            IEventAggregator eventAggregator)
         {
             this.repository = repository;
             this.domainService = domainService;
-            this.gateway = gateway;
+            this.eventAggregator = eventAggregator;
         }
 
         public async Task<IEnumerable<DocumentDto>> GetAll(int page, int pageSize)
@@ -30,16 +33,18 @@
             return Mapper.Map<IEnumerable<DocumentDto>>(documents);
         }
 
-        public async Task Save(Guid documentId, DocumentDto documentDto)
+        public async Task Save(string documentId, AddOrUpdateDocumentDto dto)
         {
-            documentDto.Id = documentId;
-            var document = Mapper.Map<Document>(documentDto);
-
-            var classificator = new DocumentClassificationService.DocumentClassificationService(this.gateway);
-
-            await classificator.Classificate(document);
+            var document = new Document
+            {
+                Id = documentId,
+                Author = dto.Author,
+                Content = dto.Content
+            };
 
             this.domainService.Validate(document);
+
+            this.eventAggregator.GetEvent<DocumentCreatingEvent>().Publish(document);
 
             await this.repository.Save(document).ConfigureAwait(false);
         }

@@ -2,7 +2,7 @@
 
 namespace Infrastructure.CrossCutting.IoC
 {
-    public interface IServiceProviderBuilder
+    public interface IRegistrationService
     {
         void RegisterServices(IServiceCollection serviceCollection);
     }

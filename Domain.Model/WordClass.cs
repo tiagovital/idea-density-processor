@@ -41,6 +41,17 @@
         Preposition,
 
         // Conjunção
-        Conjunction
+        Conjunction,
+        DemonstrativeArticle,
+        UndefinedArticle,
+        DefinedArticle,
+        MaleNoun,
+        FemaleNoun,
+        Number,
+        QuestioningArticle,
+        QuestioningPronoun,
+        RelativePronoun,
+        RelativePronoune,
+        Interjection
     }
 }

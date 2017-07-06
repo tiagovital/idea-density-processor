@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation.API.Tests", "P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.Gateway", "Data.Gateway\Data.Gateway.csproj", "{E6CFCE58-A594-4D1E-BB70-76CD5558F60A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application.Events", "Application.Events\Application.Events.csproj", "{ECD0B594-95A5-41FA-B8D5-322EC984F177}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +79,10 @@ Global
 		{E6CFCE58-A594-4D1E-BB70-76CD5558F60A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E6CFCE58-A594-4D1E-BB70-76CD5558F60A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E6CFCE58-A594-4D1E-BB70-76CD5558F60A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECD0B594-95A5-41FA-B8D5-322EC984F177}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECD0B594-95A5-41FA-B8D5-322EC984F177}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECD0B594-95A5-41FA-B8D5-322EC984F177}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECD0B594-95A5-41FA-B8D5-322EC984F177}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -93,5 +99,6 @@ Global
 		{BC871760-0C11-4495-ADA1-2B5B32480E19} = {B4E26942-81D3-400D-85A8-D7CD0A57B927}
 		{D4B9342F-E4A9-4C18-BDDC-21B06537B396} = {BC871760-0C11-4495-ADA1-2B5B32480E19}
 		{E6CFCE58-A594-4D1E-BB70-76CD5558F60A} = {6CD9F941-0CE3-46F5-BF61-B2BC7625BFC4}
+		{ECD0B594-95A5-41FA-B8D5-322EC984F177} = {1CB5C404-F593-4DE7-9A49-F6EC4036C641}
 	EndGlobalSection
 EndGlobal

@@ -53,10 +53,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Automapper\IProfileLoader.cs" />
-    <Compile Include="Automapper\MapperConfig.cs" />
-    <Compile Include="Automapper\StaticProfileLoader.cs" />
-    <Compile Include="IoC\IServiceProviderBuilder.cs" />
+    <Compile Include="Automapper\IProfileLoadingStragegy.cs" />
+    <Compile Include="Automapper\MapperInitializer.cs" />
+    <Compile Include="Automapper\StaticLoadingStrategy.cs" />
+    <Compile Include="EventAggregator\EventAggregator.cs" />
+    <Compile Include="EventAggregator\EventBase.cs" />
+    <Compile Include="EventAggregator\EventSubscription.cs" />
+    <Compile Include="EventAggregator\IEventAggregator.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="IoC\IRegistrationService.cs" />
+    <Compile Include="IoC\RegistrationService.cs" />
     <Compile Include="Validation\Guard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

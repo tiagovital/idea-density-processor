@@ -42,6 +42,10 @@
       <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.1.1.1\lib\netstandard1.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="RateGate, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\JackLeitch.RateGate.1.0.0\lib\net40\RateGate.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Configuration" />
@@ -70,7 +74,7 @@
     <Compile Include="Iltec\Dtos\IltecResponse.cs" />
     <Compile Include="Iltec\Adapters\IltecSingleTermPageAdapter.cs" />
     <Compile Include="Iltec\Adapters\IltectMultipleTermsPageAdapter.cs" />
-    <Compile Include="IoC\GatewayServiceProviderBuilder.cs" />
+    <Compile Include="IoC\GatewayRegistrationService.cs" />
     <Compile Include="IWordClassificatorGateway.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

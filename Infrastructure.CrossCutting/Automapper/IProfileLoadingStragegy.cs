@@ -3,7 +3,7 @@
     using System.Collections.Generic;
     using AutoMapper;
 
-    public interface IProfileLoader
+    public interface IProfileLoadingStrategy
     {
         IEnumerable<Profile> GetProfiles();
     }

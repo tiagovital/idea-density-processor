@@ -6,7 +6,7 @@
     using Infrastructure.CrossCutting.IoC;
     using Microsoft.Extensions.DependencyInjection;
 
-    public class GatewayServiceProviderBuilder : IServiceProviderBuilder
+    public class GatewayRegistrationService : IRegistrationService
     {
         public void RegisterServices(IServiceCollection serviceCollection)
         {

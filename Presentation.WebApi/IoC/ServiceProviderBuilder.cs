@@ -5,20 +5,16 @@
     using Infrastructure.CrossCutting.IoC;
     using Microsoft.Extensions.DependencyInjection;
 
-    public class ServiceProviderBuilder : IServiceProviderBuilder
+    public class RegistrationService : IRegistrationService
     {
         public void RegisterServices(IServiceCollection serviceCollection)
         {
             //register Application Service Provider
-            var appServiceProvider = new ApplicationServiceProviderBuilder();
+            var appServiceProvider = new ApplicationRegistrationService();
 
             appServiceProvider.RegisterServices(serviceCollection);
 
-            //register controllers
-            serviceCollection.AddControllersAsServices(new[]
-            {
-                typeof(DocumentsController)
-            });
+            serviceCollection.AddTransient(typeof(DocumentsController));
         }
     }
 }

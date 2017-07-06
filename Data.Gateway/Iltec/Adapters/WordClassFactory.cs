@@ -25,12 +25,20 @@ namespace Data.Gateway.Iltec.Adapters
                     return WordClass.Adjective;
 
                 case "artigo definido":
+                    return WordClass.DefinedArticle;
+
                 case "artigo indefinido":
+
+                    return WordClass.UndefinedArticle;
+
                 case "artigo demostrativo":
-                    return WordClass.Article;
+                    return WordClass.DemonstrativeArticle;
 
                 case "artigo possessivo":
                     return WordClass.PossessiveArticle;
+
+                case "artigo interrogativo":
+                    return WordClass.QuestioningArticle;
 
                 case "advérbio":
                     return WordClass.Adverb;
@@ -44,8 +52,15 @@ namespace Data.Gateway.Iltec.Adapters
                 case "verbo":
                     return WordClass.Verb;
 
+                case "interjeição":
+                    return WordClass.Interjection;
+
                 case "nome masculino":
+                    return WordClass.MaleNoun;
+
                 case "nome feminino":
+                    return WordClass.FemaleNoun;
+
                 case "substantivo":
                     return WordClass.Noun;
 
@@ -62,8 +77,17 @@ namespace Data.Gateway.Iltec.Adapters
                 case "pronome possessivo":
                     return WordClass.PosssessivePronoun;
 
+                case "pronome interrogativo":
+                    return WordClass.QuestioningPronoun;
+
+                case "pronome relativo":
+                    return WordClass.RelativePronoune;
+
                 case "preposição":
                     return WordClass.Preposition;
+
+                case "número cardinal":
+                    return WordClass.Number;
 
                 default:
                     return WordClass.Unknown;

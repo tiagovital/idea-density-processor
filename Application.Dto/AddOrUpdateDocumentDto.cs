@@ -1,6 +1,6 @@
-﻿namespace Presentation.API.Models
+﻿namespace Application.Dto
 {
-    public class AddOrUpdateDocumentModel
+    public class AddOrUpdateDocumentDto
     {
         public string Author { get; set; }
 

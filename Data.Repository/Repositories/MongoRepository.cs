@@ -17,7 +17,7 @@
             this.client = client;
         }
 
-        public async Task Delete(Guid id)
+        public async Task Delete(string id)
         {
             await this.client
                 .GetDatabase("IDP")
@@ -57,7 +57,7 @@
                 .ConfigureAwait(false);
         }
 
-        public async Task<TEntity> Get(Guid id)
+        public async Task<TEntity> Get(string id)
         {
             return await this.client
                 .GetDatabase("IDP")

@@ -21,12 +21,12 @@ namespace Presentation.API
             SwaggerConfig.Register(config);
 
             //Automapper
-            var profilesLoader = new StaticProfileLoader(new Profile[] {
-                new Presentation.API.MapperProfiles.DocumentsProfile(),
+            var profilesLoader = new StaticLoadingStrategy(new Profile[] {
+                //new Presentation.API.MapperProfiles.DocumentsProfile(),
                 new Application.Services.MapperProfiles.DocumentProfile()
             });
 
-            MapperConfig.Initialize(profilesLoader);
+            MapperInitializer.Initialize(profilesLoader);
         }
     }
 }

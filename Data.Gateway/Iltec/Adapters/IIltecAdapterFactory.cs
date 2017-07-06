@@ -1,7 +1,9 @@
-﻿namespace Data.Gateway
+﻿using HtmlAgilityPack;
+
+namespace Data.Gateway
 {
     public interface IIltecAdapterFactory
     {
-        IIltecAdapter From(string htmlResult);
+        IIltecAdapter From(HtmlDocument htmlDoc);
     }
 }

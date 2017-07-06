@@ -1,10 +1,10 @@
 ﻿namespace Presentation.API.Tests
 {
     using System.Diagnostics.CodeAnalysis;
+    using Application.Services.MapperProfiles;
     using AutoMapper;
     using Infrastructure.CrossCutting.Automapper;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using Presentation.API.MapperProfiles;
 
     [ExcludeFromCodeCoverage]
     [TestClass]
@@ -17,13 +17,13 @@
         [AssemblyInitialize]
         public static void Setup(TestContext context)
         {
-            var profileLoader = new StaticProfileLoader(
+            var profileLoader = new StaticLoadingStrategy(
                 new Profile[]
                 {
-                    new DocumentsProfile()
+                    new DocumentProfile()
                 });
 
-            MapperConfig.Initialize(profileLoader);
+            //MapperConfig.Initialize(profileLoader);
         }
     }
 }

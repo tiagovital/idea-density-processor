@@ -3,7 +3,7 @@
     using System.Collections.Generic;
     using AutoMapper;
 
-    public class StaticProfileLoader : IProfileLoader
+    public class StaticLoadingStrategy : IProfileLoadingStrategy
     {
         #region Private Members
 
@@ -13,7 +13,7 @@
 
         #region Ctors
 
-        public StaticProfileLoader(IEnumerable<Profile> profiles)
+        public StaticLoadingStrategy(IEnumerable<Profile> profiles)
         {
             this.profiles = profiles;
         }

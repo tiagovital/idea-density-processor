@@ -2,39 +2,82 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text.RegularExpressions;
     using System.Threading.Tasks;
+    using AutoMapper;
     using Data.Gateway;
+    using Data.Repository.Repositories;
     using Domain.Model;
+    using Dto;
+    using Infrastructure.CrossCutting.Extensions;
 
-    public class DocumentClassificationService
+    public class DocumentClassificationService : IDocumentClassificationService
     {
         private readonly IWordClassificatorGateway gateway;
+        private readonly IWordClassificationRepository repository;
 
-        public DocumentClassificationService(IWordClassificatorGateway gateway)
+        public DocumentClassificationService(
+            IWordClassificatorGateway gateway,
+            IWordClassificationRepository repository)
         {
             this.gateway = gateway;
+            this.repository = repository;
+        }
+
+        public async Task<WordDto> Classificate(string wordValue)
+        {
+            var word = await this.GetOrLoad(wordValue);
+
+            return Mapper.Map<WordDto>(word);
         }
 
         public async Task Classificate(Document document)
         {
-            var sentencesMatches = Regex.Split(document.Content, @"(?<=[\.!\?])\s+");
+            var sentences = document.Content.SplitIntoSentences();
 
-            document.Sentences = await Task.WhenAll(sentencesMatches
-                .Select(async st => new Sentence() { Words = await ParseWords(st).ConfigureAwait(false) }))
-                .ConfigureAwait(false);
+            foreach (var st in sentences)
+            {
+                var wordsValues = st
+                                    .SplitIntoWords()
+                                    .Where(w => !string.IsNullOrEmpty(w))
+                                    .ToList();
 
-            var count = document.Sentences.Count();
+                var sentence = new Sentence
+                {
+                    Words = await Classificate(wordsValues).ConfigureAwait(false)
+                };
+
+                document.Sentences.Add(sentence);
+            }
         }
 
-        private async Task<IList<Word>> ParseWords(string sentence)
+        private async Task<IList<Word>> Classificate(List<string> wordsValues)
         {
-            var wordsMatches = Regex.Matches(sentence, @"\b[\w']*\b");
+            var words = new List<Word>();
 
-            return await Task.WhenAll(wordsMatches.Cast<Match>()
-                          .Where(w => !string.IsNullOrEmpty(w.Value))
-                          .Select(async w => await this.gateway.Classificate(w.Value).ConfigureAwait(false)))
-                          .ConfigureAwait(false);
+            wordsValues.ForEach(async w =>
+            {
+                var word = await this.GetOrLoad(w).ConfigureAwait(false);
+
+                words.Add(word);
+            });
+
+            return words;
+        }
+
+        private async Task<Word> GetOrLoad(string wordValue)
+        {
+            var loweredWord = wordValue.ToLowerInvariant();
+
+            var word = await this.repository.Get(loweredWord).ConfigureAwait(false);
+
+            if (word == null)
+            {
+                word = await this.gateway.Classificate(loweredWord).ConfigureAwait(false);
+
+                await this.repository.Save(word).ConfigureAwait(false);
+            }
+
+            return word;
         }
     }
 }
